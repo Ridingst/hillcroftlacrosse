@@ -120,3 +120,6 @@ secrets.yml
 
 workers-site/
 .DS_Store
+
+*.env*
+stripe/package-lock.json

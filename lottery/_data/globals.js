@@ -1,0 +1,5 @@
+module.exports = {
+  STRIPE_BACKEND_API: process.env.STRIPE_BACKEND_API,
+  STRIPE_PRICE_ID: process.env.STRIPE_PRICE_ID,
+  STRIPE_PUBLISHED_KEY: process.env.STRIPE_PUBLISHED_KEY,
+};

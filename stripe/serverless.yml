@@ -1,0 +1,38 @@
+org: ridings
+app: hillcroft-lottery
+service: hillcroft-lottery
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+
+custom:
+  dotenv:
+    required:
+      env:
+        - STRIPE_SECRET
+        - STRIPE_PRODUCT_ID
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
+      - http:
+          path: /lottery/subscription
+          method: POST
+      - http:
+          path: /lottery/customer
+          method: POST
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
